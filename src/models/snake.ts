@@ -1,4 +1,4 @@
-import Board from "./board";
+import type Board from "./board";
 import { directionT } from "../types";
 
 class Snake {
@@ -17,7 +17,16 @@ class Snake {
     const newX = x + xd;
     const newY = y + yd;
 
-    if (newX === -1 || newY === -1 || newX === 11 || newY === 11) return;
+    if (
+      newX === -1 ||
+      newY === -1 ||
+      newX === 11 ||
+      newY === 11 ||
+      this.board.state[newY][newX] === "body"
+    ) {
+      this.board.init();
+      return;
+    }
 
     if (this.board.state[newY][newX] === "eat") {
       this.state.push([x, y]);

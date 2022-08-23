@@ -1,4 +1,4 @@
-import { directionT, cellT } from "../types";
+import { cellT } from "../types";
 import { random } from "../../utils/random";
 import Snake from "./snake";
 
@@ -15,6 +15,8 @@ class Board {
   }
 
   init() {
+    this.state = [];
+
     for (let i = 0; i < 11; i++) {
       this.state.push([]);
 
