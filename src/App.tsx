@@ -26,7 +26,7 @@ const App: FC = () => {
           break;
       }
 
-      board.setDirection(dir);
+      board.snake.setDirection(dir);
     };
 
     window.addEventListener("keydown", onKeyDown);
@@ -38,7 +38,7 @@ const App: FC = () => {
 
   useEffect(() => {
     const intervalHead = setInterval(() => {
-      board.setSnake();
+      board.snake.setSnake();
       setBoard(board.returnCopy());
     }, 300);
 
